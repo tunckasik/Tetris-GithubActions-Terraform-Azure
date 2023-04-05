@@ -17,8 +17,8 @@ provider "github" {
 
 terraform {
   backend "azurerm" {
-    resource_group_name  = "sshkey"
-    storage_account_name = "ccseyhan"
+    resource_group_name  = "tf-state-rg"
+    storage_account_name = "tfstatecontainerfxfx3223"
     container_name       = "tetris-githubaction-backend"
     key                  = "terraform.tfstate"
   }
@@ -53,7 +53,7 @@ resource "azurerm_linux_web_app" "linux_web_app" {
   site_config {}
 }
 
-# GithubAction 
+# GithubAction
 resource "github_actions_secret" "github_action_secret" {
   repository      = "tetris-github_action"
   secret_name     = "ACR_PASSWORD"
